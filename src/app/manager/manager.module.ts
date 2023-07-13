@@ -8,9 +8,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
 import { SharedModule } from '../shared/shared.module';
+import { AllTasksComponent } from './all-tasks/all-tasks.component';
 
 @NgModule({
-  declarations: [ManagerComponent],
+  declarations: [ManagerComponent, AllTasksComponent],
   imports: [
     CommonModule,
     ManagerRoutingModule,

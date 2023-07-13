@@ -1,1 +1,22 @@
-<p>task works!</p>
+<div class="w-4/5 md:w-1/2 h-full flex justify-center items-center py-5">
+    <div class="bg-white rounded-2xl h-full w-full p-5 shadow hover:drop-shadow-md flex justify-between items-center">
+        <div class="h-full flex items-center">
+            <mat-checkbox [checked]="task.complete" color="warn"></mat-checkbox>
+
+            <div
+                [ngClass]="{
+                    'bg-green shadow-green': task.complete === true,
+                    'bg-purple shadow-purple': task.complete === false
+                }"
+                class="h-full w-1 mx-2 sm:mx-8 rounded-full"
+            ></div>
+        </div>
+
+        <div class="flex flex-col grow items-start justify-center px-2">
+            <span class="text-md">{{ task.name }}</span>
+            <span class="text-warmGray-400 text-sm"> {{ task.priority }} Priority</span>
+        </div>
+
+        <mat-icon class="text-warmGray-300 cursor-pointer duration-100 hover:scale-110">close</mat-icon>
+    </div>
+</div>
