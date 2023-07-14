@@ -12,3 +12,13 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.backdropBackground {
+    background-color: #a0a0a06a;
+    backdrop-filter: blur(1px);
+}
+
+.cust-dialog {
+    @apply overflow-hidden;
+    border-radius: 50px;
+}

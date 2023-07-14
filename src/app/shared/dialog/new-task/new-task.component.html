@@ -1,0 +1,67 @@
+<section class="h-full bg-violet py-5 sm:py-10 px-6 sm:px-16 flex flex-col justify-between">
+    <div class="text-xl my-5 text-white">Create a new task</div>
+
+    <div class="relative rounded-md shadow-sm">
+        <input
+            [(ngModel)]="taskName"
+            placeholder="Task name"
+            type="text"
+            class="w-full py-1.5 px-2 my-5 bg-violet border-b-2 border-white outline-0 text-white placeholder-blue-100"
+        />
+    </div>
+
+    <div>
+        <div class="text-md mt-5 mb-2 text-white">Priority</div>
+        <div class="w-full space-x-2 sm:space-x-5">
+            <button
+                (click)="priority = 'Urgent'"
+                [ngClass]="{
+                    'bg-white shadow-white text-violet': priority === 'Urgent',
+                    'text-white': priority !== 'Urgent'
+                }"
+                class="text-xs border-2 border-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg"
+            >
+                Urgent
+            </button>
+            <button
+                (click)="priority = 'High'"
+                [ngClass]="{
+                    'bg-white shadow-white text-violet': priority === 'High',
+                    'text-white': priority !== 'High'
+                }"
+                class="text-white text-xs border-2 border-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg"
+            >
+                High
+            </button>
+            <button
+                (click)="priority = 'Medium'"
+                [ngClass]="{
+                    'bg-white shadow-white text-violet': priority === 'Medium',
+                    'text-white': priority !== 'Medium'
+                }"
+                class="text-white text-xs border-2 border-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg"
+            >
+                Medium
+            </button>
+            <button
+                (click)="priority = 'Low'"
+                [ngClass]="{
+                    'bg-white shadow-white text-violet': priority === 'Low',
+                    'text-white': priority !== 'Low'
+                }"
+                class="text-white text-xs border-2 border-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg"
+            >
+                Low
+            </button>
+        </div>
+    </div>
+
+    <div class="w-full flex justify-center mt-10">
+        <button
+            (click)="createTask()"
+            class="flex justify-center items-center bg-white text-sm text-violet rounded-lg py-1 pl-2 pr-4 shadow-white"
+        >
+            <mat-icon class="scale-90">add</mat-icon> Create Task
+        </button>
+    </div>
+</section>

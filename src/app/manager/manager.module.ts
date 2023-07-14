@@ -6,18 +6,20 @@ import { ManagerComponent } from './manager.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SharedModule } from '../shared/shared.module';
-import { AllTasksComponent } from './all-tasks/all-tasks.component';
+import { AllTasksComponent } from './tasks-list/tasks-list.component';
 
 @NgModule({
-  declarations: [ManagerComponent, AllTasksComponent],
-  imports: [
-    CommonModule,
-    ManagerRoutingModule,
-    SharedModule,
-    MatTabsModule,
-    MatIconModule,
-  ],
+    declarations: [ManagerComponent, AllTasksComponent],
+    imports: [
+        CommonModule,
+        ManagerRoutingModule,
+        SharedModule,
+        MatTabsModule,
+        MatIconModule,
+        MatDialogModule,
+    ],
 })
 export class ManagerModule {}
