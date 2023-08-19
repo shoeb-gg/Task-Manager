@@ -21,23 +21,23 @@ export class NewTaskComponent implements OnDestroy {
         this.taskService.tasks$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((t) => {
-                this.prevTasks = t;
+                this.tasks = t;
             });
     }
 
-    public prevTasks: TaskModel[];
+    public tasks: TaskModel[];
     public priority = 'Low';
     public taskName = '';
 
     createTask() {
-        this.prevTasks.push({
-            id: this.prevTasks.length,
+        this.tasks.push({
+            id: this.tasks.length,
             name: this.taskName,
             priority: this.priority,
             complete: false,
         });
-        this.taskService.tasks$.next(this.prevTasks);
-        this.dialogRef.close(null);
+        this.taskService.tasks$.next(this.tasks);
+        this.dialogRef.close(true);
     }
 
     ngOnDestroy(): void {

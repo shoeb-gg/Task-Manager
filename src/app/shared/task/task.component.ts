@@ -32,6 +32,7 @@ export class TaskComponent implements OnDestroy {
             });
 
         this.taskService.tasks$.next(this.tasksList);
+        this.taskService.updateFlag$.next(null);
         sub.unsubscribe();
     }
 
@@ -46,6 +47,7 @@ export class TaskComponent implements OnDestroy {
             });
 
         this.taskService.tasks$.next(this.tasksList);
+        this.taskService.updateFlag$.next(null);
         sub.unsubscribe();
     }
 
