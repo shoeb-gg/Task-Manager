@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
@@ -8,26 +9,17 @@ import { TaskModel } from '../models/task.model';
     providedIn: 'root',
 })
 export class TaskService {
-    public tasks: TaskModel[] = [
-        {
-            id: 0,
-            name: 'A Sample Task Name',
-            priority: 'High',
-            complete: true,
-        },
-        {
-            id: 1,
-            name: 'Second Task',
-            priority: 'Medium',
-            complete: false,
-        },
-        {
-            id: 2,
-            name: 'Create Login UI',
-            priority: 'Low',
-            complete: true,
-        },
-    ];
+    constructor(private readonly http: HttpClient) {}
+    private baseUrl = 'https://redis-task-manager-server.onrender.com/tasks/';
 
-    public tasks$ = new BehaviorSubject<TaskModel[]>(this.tasks);
+    public tasks$ = new BehaviorSubject<TaskModel[]>([]);
+    public updateFlag$ = new BehaviorSubject<any>(false);
+
+    loadTasks(username: string) {
+        return this.http.get(this.baseUrl + username);
+    }
+
+    saveTasks(username: string, body: string) {
+        return this.http.post(this.baseUrl + username, body);
+    }
 }
